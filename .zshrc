@@ -15,10 +15,5 @@ source $ZSH/oh-my-zsh.sh
 set shell=zsh
 
 [[ -f ~/.aliases ]] && source ~/.aliases
-source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
