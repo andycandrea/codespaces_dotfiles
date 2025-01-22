@@ -1,27 +1,27 @@
 #!/bin/bash
 
+apt-get install build-essential
+
 CODESPACES_HOME="/workspaces/.codespaces/.persistedshare/dotfiles"
 BREW_BIN="/home/linuxbrew/.linuxbrew/bin/brew"
 BREWFILE_PATH="${CODESPACES_HOME}/Brewfile"
 /bin/bash -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ${BREW_BIN} bundle install --file="${BREWFILE_PATH}"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-cp "${CODESPACES_HOME}.tmux.conf" "${HOME}/.tmux.conf"
-cp "${CODESPACES_HOME}.gitconfig" "${HOME}/.gitconfig"
-cp "${CODESPACES_HOME}.agignore" "${HOME}/.agignore"
-cp "${CODESPACES_HOME}.aliases" "${HOME}/.aliases"
-cp "${CODESPACES_HOME}.gemrc" "${HOME}/.gemrc"
-cp "${CODESPACES_HOME}.gitconfig" "${HOME}/.gitconfig"
-cp "${CODESPACES_HOME}.gitignore" "${HOME}/.gitignore"
-cp "${CODESPACES_HOME}.gitmessage" "${HOME}/.gitmessage"
-cp "${CODESPACES_HOME}.nvimrc.bundles" "${HOME}/.nvimrc.bundles"
-cp "${CODESPACES_HOME}.pryrc" "${HOME}/.pryrc"
-cp "${CODESPACES_HOME}.psqlrc" "${HOME}/.psqlrc"
-cp "${CODESPACES_HOME}.tmux.conf" "${HOME}/.tmux.conf"
-cp "${CODESPACES_HOME}.zshenv" "${HOME}/.zshenv"
-cp "${CODESPACES_HOME}.zshrc" "${HOME}/.zshrc"
+cp "${CODESPACES_HOME}/.tmux.conf" "${HOME}/.tmux.conf"
+cp "${CODESPACES_HOME}/.gitconfig" "${HOME}/.gitconfig"
+cp "${CODESPACES_HOME}/.agignore" "${HOME}/.agignore"
+cp "${CODESPACES_HOME}/.aliases" "${HOME}/.aliases"
+cp "${CODESPACES_HOME}/.gemrc" "${HOME}/.gemrc"
+cp "${CODESPACES_HOME}/.gitconfig" "${HOME}/.gitconfig"
+cp "${CODESPACES_HOME}/.gitignore" "${HOME}/.gitignore"
+cp "${CODESPACES_HOME}/.gitmessage" "${HOME}/.gitmessage"
+cp "${CODESPACES_HOME}/.nvimrc.bundles" "${HOME}/.nvimrc.bundles"
+cp "${CODESPACES_HOME}/.pryrc" "${HOME}/.pryrc"
+cp "${CODESPACES_HOME}/.psqlrc" "${HOME}/.psqlrc"
+cp "${CODESPACES_HOME}/.tmux.conf" "${HOME}/.tmux.conf"
+cp "${CODESPACES_HOME}/.zshenv" "${HOME}/.zshenv"
+cp "${CODESPACES_HOME}/.zshrc" "${HOME}/.zshrc"
 
 # Install vim-plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
