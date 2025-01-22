@@ -8,6 +8,9 @@ BREWFILE_PATH="${CODESPACES_HOME}/Brewfile"
 /bin/bash -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ${BREW_BIN} bundle install --file="${BREWFILE_PATH}"
 
+# Make everything installed by brew executable to codespace users
+chown -R codespace:codespace /home/linuxbrew/.linuxbrew/
+
 cp "${CODESPACES_HOME}/.tmux.conf" "${HOME}/.tmux.conf"
 cp "${CODESPACES_HOME}/.gitconfig" "${HOME}/.gitconfig"
 cp "${CODESPACES_HOME}/.agignore" "${HOME}/.agignore"
@@ -31,7 +34,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 mkdir -p ${HOME}/.config/nvim
 cp nvimrc ${HOME}/.config/nvim/init.vim
 cp nvim.coc-settings.json ${HOME}/.config/nvim/coc-settings.json
-sudo chsh --shell "/usr/bin/zsh" "$(whoami)"
+chsh --shell "/usr/bin/zsh" "codespace"
 
 local_config="${HOME}/.zshenv.local"
 if [ ! -e $local_config ]; then
