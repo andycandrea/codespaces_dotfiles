@@ -1,0 +1,10 @@
+log
+tmp
+coverage
+node_modules
+webpack
+bundle.js
+bundle.js.map
+*.min.js
+app/assets/builds/
+CODE_ANALYSIS/

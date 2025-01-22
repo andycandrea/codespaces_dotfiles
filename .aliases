@@ -1,0 +1,16 @@
+# Unix
+alias tlf="tail -f"
+alias ln="ln -v"
+alias mkdir="mkdir -p"
+alias ...="../.."
+alias -g G="| grep"
+alias e="$EDITOR"
+alias v="$VISUAL"
+alias vim="nvim"
+
+# Tools
+alias bup="brew update && brew upgrade && brew cleanup"
+alias cat="bat"
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local

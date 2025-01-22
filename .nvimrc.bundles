@@ -1,0 +1,29 @@
+if &compatible
+  set nocompatible
+end
+
+filetype off
+call plug#begin()
+
+" Define bundles via Github repos
+Plug 'ap/vim-css-color'                    " Show defined colors inline
+Plug 'dense-analysis/ale'                  " Async syntax highlighting/linting
+Plug 'junegunn/fzf'                        " Fuzzy file finder
+Plug 'junegunn/fzf.vim'
+Plug 'kamykn/spelunker.vim'                " Smarter spell checking
+Plug 'mileszs/ack.vim'                     " Searcher
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
+Plug 'pbrisbin/vim-mkdir'                  " Automatically create nonexistent directories on write
+Plug 'posva/vim-vue'                       " Vue syntax highlighting
+Plug 'scrooloose/nerdtree'                 " File tree explorer
+Plug 'sheerun/vim-polyglot'                " Language support
+Plug 'tommcdo/vim-lion'                    " Align text by character
+Plug 'tpope/vim-commentary'                " Quick commenting (use gc)
+Plug 'tpope/vim-endwise'                   " Automatically close blocks
+Plug 'tpope/vim-fugitive'                  " Add git support
+Plug 'tpope/vim-rails'                     " Rails support
+Plug 'tpope/vim-repeat'                    " Allow plugin commands to be repeated with `.`
+Plug 'tpope/vim-surround'                  " Easy surrounding character modifications
+
+call plug#end()
+filetype on
