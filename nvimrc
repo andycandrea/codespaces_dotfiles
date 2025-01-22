@@ -22,6 +22,8 @@ set number
 set numberwidth=5
 
 " General preferences
+set notermguicolors                 " Allow familiar colorscheme
+colorscheme vim
 set undofile
 set nobackup
 set nowritebackup
@@ -117,19 +119,16 @@ endfunction
 
 " Set up Ale linting
 let g:ale_linter_aliases = {'vue': ['vue', 'css', 'javascript', 'scss', 'html']}
-let g:ale_linters = { 'css': ['csslint'], 'Dockerfile': ['dockerfile_lint'], 'haml': ['hamllint'], 'javascript': ['eslint', 'jslint'], 'markdown': ['write-good'], 'python': ['flake8'], 'ruby': ['rubocop'], 'scss': ['scsslint', 'stylelint'], 'sql': ['sqlint'], 'vue': ['eslint', 'stylelint'] }
+let g:ale_linters = { 'css': ['csslint'], 'Dockerfile': ['dockerfile_lint'], 'haml': ['hamllint'], 'javascript': ['eslint'], 'ruby': ['rubocop'], 'scss': ['scsslint', 'stylelint'], 'sql': ['sqlint'], 'vue': ['eslint', 'stylelint'] }
 
-let g:ale_lint_delay = 800
+let g:ale_lint_delay = 600
 let g:ale_set_highlights = 0
-let $BUNDLE_GEMFILE = '.overcommit/Gemfile'
+let $BUNDLE_GEMFILE = '/workspaces/monorama/apps/nds/.overcommit/Gemfile'
 let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_css_stylelint_options = '--config /Users/aandrea/.eslintrc'
+let g:ale_css_stylelint_options = '--config /home/codespace/.eslintrc'
 
 " Only load SCSS preprocessor for Vue files (plus JS/HTML/CSS)
 let g:vue_pre_processors = ['scss']
-
-" Ignore .pyc files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$']
 
 " Don't fold sections in Markdown
 let g:vim_markdown_folding_disabled = 1
@@ -143,15 +142,11 @@ map <C-n> :NERDTreeToggle<CR>
 " Open fzf with Ctrl + p
 map <C-p> :Files<CR>
 
-" Index ctags from any project, including those outside Rails
-map <leader>ct :!/opt/homebrew/bin/ctags --options=/Users/aandrea/.ctags.d/.ctags .<CR>
-
-" vim-test mappings
-nnoremap <leader>t :TestFile<CR>
-nnoremap <leader>l :TestLast<CR>
-
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
+
+" Trigger copilot
+nnoremap <leader>cp :Copilot panel<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
