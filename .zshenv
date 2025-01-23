@@ -17,3 +17,9 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
+
+# Local config
+[[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
+
+# Things not to keep in git
+[[ -f ~/.zsh_secrets ]] && source ~/.zsh_secrets
