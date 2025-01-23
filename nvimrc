@@ -1,4 +1,9 @@
 " Place in ~/.config/nvim/init.vim along with coc-settings.json
+"
+" TODO after codespace creation:
+" * :PlugInstall
+" * :CocInstall coc-css coc-html coc-tsserver coc-json coc-solargraph efm-langserver
+" * :Copilot setup
 
 " Leader
 let mapleader = ' '
@@ -121,9 +126,9 @@ endfunction
 let g:ale_linter_aliases = {'vue': ['vue', 'css', 'javascript', 'scss', 'html']}
 let g:ale_linters = { 'css': ['csslint'], 'Dockerfile': ['dockerfile_lint'], 'haml': ['hamllint'], 'javascript': ['eslint'], 'ruby': ['rubocop'], 'scss': ['scsslint', 'stylelint'], 'sql': ['sqlint'], 'vue': ['eslint', 'stylelint'] }
 
-let g:ale_lint_delay = 600
+let g:ale_lint_delay = 500
 let g:ale_set_highlights = 0
-let $BUNDLE_GEMFILE = '/workspaces/monorama/apps/nds/.overcommit/Gemfile'
+let $BUNDLE_GEMFILE = '/workspaces/monorama/.overcommit/Gemfile'
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_css_stylelint_options = '--config /home/codespace/.eslintrc'
 
