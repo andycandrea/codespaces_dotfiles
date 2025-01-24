@@ -128,7 +128,9 @@ let g:ale_linters = { 'css': ['csslint'], 'Dockerfile': ['dockerfile_lint'], 'ha
 
 let g:ale_lint_delay = 500
 let g:ale_set_highlights = 0
-let $BUNDLE_GEMFILE = '/workspaces/monorama/.overcommit/Gemfile'
+" Set to the path of the Gemfile that installs Rubocop if it's not the one in
+" the working directory
+" let $BUNDLE_GEMFILE = '/workspaces/somewhere/Gemfile'
 let g:ale_ruby_rubocop_executable = 'bundle'
 let g:ale_css_stylelint_options = '--config /home/codespace/.eslintrc'
 
