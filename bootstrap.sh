@@ -32,11 +32,9 @@ sudo chsh --shell /usr/bin/zsh codespace
 echo "Setting up local zsh config"
 if [ ! -e $LOCAL_CONFIG ]; then
   cat > $LOCAL_CONFIG <<EOF
-export PANORAMA_TOP=/workspaces
-SCHOOL_SUPPLIES_HOME="${PANORAMA_TOP}/school-supplies"
 source "/usr/local/share/chruby/chruby.sh"
 source "/usr/local/share/chruby/auto.sh"
-source "${SCHOOL_SUPPLIES_HOME}/bin/shell_includes.sh"
+# Add additional work-specific below
 EOF
 fi
 
