@@ -17,3 +17,9 @@ set shell=zsh
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Uncomment and fill in -c arg to start tmux in a specific directory when in a
+# new shell
+# if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#   tmux attach-session -t default || tmux new-session -s default -c /workspaces/preferred/directory
+# fi
