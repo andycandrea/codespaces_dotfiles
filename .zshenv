@@ -1,6 +1,7 @@
 # use nvim as the visual editor
 export VISUAL=nvim
 export EDITOR=$VISUAL
+export GIT_EDITOR=$VISUAL
 
 # mkdir .git/safe in the root of repositories you trust
 export PATH=".git/safe/../../bin:$PATH"

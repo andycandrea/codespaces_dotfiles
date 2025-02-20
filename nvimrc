@@ -4,6 +4,8 @@
 " * :PlugInstall
 " * :CocInstall coc-css coc-html coc-tsserver coc-json coc-solargraph efm-langserver
 " * :Copilot setup
+" * Update BUNDLE_GEMFILE below if needed
+" * Other source-ing and setup
 
 " Leader
 let mapleader = ' '
@@ -42,6 +44,7 @@ set wrap                            " Wrap lines that go beyond the edge of the 
 set clipboard=unnamed               " Yank to clipboard
 set colorcolumn=80                  " Color 80th column
 set updatetime=300                  " Reduce delay
+set ruler                           " Display the column in the bottom right
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
