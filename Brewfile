@@ -1,4 +1,5 @@
 brew "chruby"
+brew "diffr"
 brew "fzf"
 brew "git"
 brew "htop"
