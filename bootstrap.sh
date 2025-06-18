@@ -43,6 +43,7 @@ echo "Installing brew"
 
 echo "Installing brew packages"
 ${BREW_BIN} bundle install --file="${BREWFILE_PATH}"
+${BREW_BIN} cleanup
 
 echo "Install vim-plug"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
