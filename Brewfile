@@ -1,3 +1,4 @@
+brew "bat"
 brew "diffr"
 brew "fzf"
 brew "neovim"

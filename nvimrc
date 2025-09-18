@@ -2,7 +2,7 @@
 "
 " TODO after codespace creation:
 " * :PlugInstall
-" * :CocInstall coc-css coc-html coc-tsserver coc-json coc-solargraph efm-langserver
+" * :CocInstall coc-css coc-html coc-tsserver coc-json coc-solargraph coc-vetur
 " * :Copilot setup
 " * Update BUNDLE_GEMFILE below if needed
 " * Other source-ing and setup
