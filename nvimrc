@@ -127,7 +127,7 @@ endfunction
 
 " Set up Ale linting
 let g:ale_linter_aliases = {'vue': ['vue', 'css', 'javascript', 'scss', 'html']}
-let g:ale_linters = { 'css': ['csslint'], 'Dockerfile': ['dockerfile_lint'], 'haml': ['hamllint'], 'javascript': ['eslint'], 'ruby': ['rubocop'], 'scss': ['scsslint', 'stylelint'], 'sql': ['sqlint'], 'vue': ['eslint', 'stylelint'] }
+let g:ale_linters = { 'css': ['csslint'], 'Dockerfile': ['dockerfile_lint'], 'haml': ['hamllint'], 'javascript': ['eslint'], 'ruby': ['rubocop'], 'scss': ['scsslint'], 'sql': ['sqlint'], 'vue': ['eslint'] }
 
 let g:ale_lint_delay = 500
 let g:ale_set_highlights = 0
@@ -135,7 +135,6 @@ let g:ale_set_highlights = 0
 " the working directory
 " let $BUNDLE_GEMFILE = '/workspaces/somewhere/Gemfile'
 let g:ale_ruby_rubocop_executable = 'bundle'
-let g:ale_css_stylelint_options = '--config /home/codespace/.eslintrc'
 
 " Only load SCSS preprocessor for Vue files (plus JS/HTML/CSS)
 let g:vue_pre_processors = ['scss']
