@@ -3,7 +3,6 @@
 " TODO after codespace creation:
 " * :PlugInstall
 " * :CocInstall coc-css coc-html coc-tsserver coc-json coc-solargraph coc-vetur
-" * :Copilot setup
 " * Update BUNDLE_GEMFILE below if needed
 " * Other source-ing and setup
 
@@ -153,9 +152,6 @@ map <C-p> :Files<CR>
 
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
-
-" Trigger copilot
-nnoremap <leader>cp :Copilot panel<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j

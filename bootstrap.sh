@@ -1,37 +1,37 @@
 #!/bin/bash
+set -e
 
-CODESPACES_HOME="/workspaces/.codespaces/.persistedshare/dotfiles"
+DOTFILES_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BREW_BIN="/home/linuxbrew/.linuxbrew/bin/brew"
-BREWFILE_PATH="${CODESPACES_HOME}/Brewfile"
+BREWFILE_PATH="${DOTFILES_HOME}/Brewfile"
 LOCAL_CONFIG="${HOME}/.zshenv.local"
+CURRENT_USER="$(whoami)"
 
-echo "Copying dotfiles from ${CODESPACES_HOME} to ${HOME}"
-cp "${CODESPACES_HOME}/.tmux.conf" "${HOME}/.tmux.conf"
-cp "${CODESPACES_HOME}/.gitconfig" "${HOME}/.gitconfig"
-cp "${CODESPACES_HOME}/.agignore" "${HOME}/.agignore"
-cp "${CODESPACES_HOME}/.aliases" "${HOME}/.aliases"
-cp "${CODESPACES_HOME}/.gemrc" "${HOME}/.gemrc"
-cp "${CODESPACES_HOME}/.gitconfig" "${HOME}/.gitconfig"
-cp "${CODESPACES_HOME}/.gitignore" "${HOME}/.gitignore"
-cp "${CODESPACES_HOME}/.gitmessage" "${HOME}/.gitmessage"
-cp "${CODESPACES_HOME}/.nvimrc.bundles" "${HOME}/.nvimrc.bundles"
-cp "${CODESPACES_HOME}/.pryrc" "${HOME}/.pryrc"
-cp "${CODESPACES_HOME}/.psqlrc" "${HOME}/.psqlrc"
-cp "${CODESPACES_HOME}/.tmux.conf" "${HOME}/.tmux.conf"
-cp "${CODESPACES_HOME}/.zshenv" "${HOME}/.zshenv"
-cp "${CODESPACES_HOME}/.zshrc" "${HOME}/.zshrc"
+echo "Copying dotfiles from ${DOTFILES_HOME} to ${HOME}"
+cp "${DOTFILES_HOME}/.tmux.conf" "${HOME}/.tmux.conf"
+cp "${DOTFILES_HOME}/.gitconfig" "${HOME}/.gitconfig"
+cp "${DOTFILES_HOME}/.agignore" "${HOME}/.agignore"
+cp "${DOTFILES_HOME}/.aliases" "${HOME}/.aliases"
+cp "${DOTFILES_HOME}/.gemrc" "${HOME}/.gemrc"
+cp "${DOTFILES_HOME}/.gitignore" "${HOME}/.gitignore"
+cp "${DOTFILES_HOME}/.gitmessage" "${HOME}/.gitmessage"
+cp "${DOTFILES_HOME}/.nvimrc.bundles" "${HOME}/.nvimrc.bundles"
+cp "${DOTFILES_HOME}/.pryrc" "${HOME}/.pryrc"
+cp "${DOTFILES_HOME}/.psqlrc" "${HOME}/.psqlrc"
+cp "${DOTFILES_HOME}/.zshenv" "${HOME}/.zshenv"
+cp "${DOTFILES_HOME}/.zshrc" "${HOME}/.zshrc"
 
 echo "Copying over vim config"
-mkdir -p ${HOME}/.config/nvim
-cp nvimrc ${HOME}/.config/nvim/init.vim
-cp nvim.coc-settings.json ${HOME}/.config/nvim/coc-settings.json
+mkdir -p "${HOME}/.config/nvim"
+cp "${DOTFILES_HOME}/nvimrc" "${HOME}/.config/nvim/init.vim"
+cp "${DOTFILES_HOME}/nvim.coc-settings.json" "${HOME}/.config/nvim/coc-settings.json"
 
 echo "Changing shell to zsh"
-sudo chsh --shell /usr/bin/zsh codespace
+sudo chsh --shell /usr/bin/zsh "${CURRENT_USER}"
 
 echo "Setting up local zsh config"
-if [ ! -e $LOCAL_CONFIG ]; then
-  cat > $LOCAL_CONFIG <<EOF
+if [ ! -e "$LOCAL_CONFIG" ]; then
+  cat > "$LOCAL_CONFIG" <<EOF
 source "/usr/local/share/chruby/chruby.sh"
 source "/usr/local/share/chruby/auto.sh"
 # Add additional work-specific below
@@ -42,8 +42,8 @@ echo "Installing brew"
 /bin/bash -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 echo "Installing brew packages"
-${BREW_BIN} bundle install --file="${BREWFILE_PATH}"
-${BREW_BIN} cleanup
+"${BREW_BIN}" bundle install --file="${BREWFILE_PATH}"
+"${BREW_BIN}" cleanup
 
 echo "Install vim-plug"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
