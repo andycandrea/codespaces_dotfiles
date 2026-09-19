@@ -2,7 +2,8 @@
 set -e
 
 DOTFILES_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BREW_BIN="/home/linuxbrew/.linuxbrew/bin/brew"
+BREW_BIN_DIR="/home/linuxbrew/.linuxbrew/bin"
+BREW_BIN="${BREW_BIN_DIR}/brew"
 BREWFILE_PATH="${DOTFILES_HOME}/Brewfile"
 LOCAL_CONFIG="${HOME}/.zshenv.local"
 CURRENT_USER="$(whoami)"
@@ -56,3 +57,6 @@ echo "Install vim-plug"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim \
        --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+echo "Installing vim plugins"
+"${BREW_BIN_DIR}/nvim" --headless "+PlugInstall --sync" +qa
