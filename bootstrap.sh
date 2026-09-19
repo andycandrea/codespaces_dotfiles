@@ -22,10 +22,6 @@ cp "${DOTFILES_HOME}/.psqlrc" "${HOME}/.psqlrc"
 cp "${DOTFILES_HOME}/.zshenv" "${HOME}/.zshenv"
 cp "${DOTFILES_HOME}/.zshrc" "${HOME}/.zshrc"
 
-echo "Configuring npm global prefix"
-mkdir -p "${HOME}/.npm-global"
-npm config set prefix "${HOME}/.npm-global"
-
 echo "Copying over vim config"
 mkdir -p "${HOME}/.config/nvim"
 cp "${DOTFILES_HOME}/nvimrc" "${HOME}/.config/nvim/init.vim"
