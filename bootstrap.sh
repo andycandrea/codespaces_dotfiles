@@ -21,10 +21,18 @@ cp "${DOTFILES_HOME}/.psqlrc" "${HOME}/.psqlrc"
 cp "${DOTFILES_HOME}/.zshenv" "${HOME}/.zshenv"
 cp "${DOTFILES_HOME}/.zshrc" "${HOME}/.zshrc"
 
+echo "Configuring npm global prefix"
+mkdir -p "${HOME}/.npm-global"
+npm config set prefix "${HOME}/.npm-global"
+
 echo "Copying over vim config"
 mkdir -p "${HOME}/.config/nvim"
 cp "${DOTFILES_HOME}/nvimrc" "${HOME}/.config/nvim/init.vim"
 cp "${DOTFILES_HOME}/nvim.coc-settings.json" "${HOME}/.config/nvim/coc-settings.json"
+
+echo "Installing oh-my-zsh"
+RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c \
+  "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Changing shell to zsh"
 sudo chsh --shell /usr/bin/zsh "${CURRENT_USER}"
@@ -34,7 +42,6 @@ if [ ! -e "$LOCAL_CONFIG" ]; then
   cat > "$LOCAL_CONFIG" <<EOF
 source "/usr/local/share/chruby/chruby.sh"
 source "/usr/local/share/chruby/auto.sh"
-# Add additional work-specific below
 EOF
 fi
 
