@@ -4,6 +4,7 @@ set -e
 DOTFILES_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BREW_BIN_DIR="/home/linuxbrew/.linuxbrew/bin"
 BREW_BIN="${BREW_BIN_DIR}/brew"
+OH_MY_ZSH_DIR="$HOME/.oh-my-zsh"
 BREWFILE_PATH="${DOTFILES_HOME}/Brewfile"
 LOCAL_CONFIG="${HOME}/.zshenv.local"
 CURRENT_USER="$(whoami)"
@@ -28,8 +29,17 @@ cp "${DOTFILES_HOME}/nvimrc" "${HOME}/.config/nvim/init.vim"
 cp "${DOTFILES_HOME}/nvim.coc-settings.json" "${HOME}/.config/nvim/coc-settings.json"
 
 echo "Installing oh-my-zsh"
-RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c \
-  "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+if [ -d "$OH_MY_ZSH_DIR" ]; then
+  echo "oh-my-zsh already exists; skipping installation"
+else
+  echo "Installing oh-my-zsh"
+  ZSH="$OH_MY_ZSH_DIR" \
+    RUNZSH=no \
+    CHSH=no \
+    KEEP_ZSHRC=yes \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 echo "Changing shell to zsh"
 sudo chsh --shell /usr/bin/zsh "${CURRENT_USER}"
